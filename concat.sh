@@ -1,5 +1,4 @@
-
-if [ "$#" -ne 1 ]; then
+if [ "$#" -ne 2 ]; then
     echo "Please enter the input directory where to find wav files as well as the output file."
     echo "Example usage:"
     echo "./cat.sh /path/to/my_dataset my_dataset.s16"
