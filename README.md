@@ -7,10 +7,25 @@ A Pytorch version of LPCNet, including dump weight
 # Download Data
 Use together with the C code of this [repo](https://github.com/mozilla/LPCNet).
 Suitable training material can be obtained from the [McGill University Telecommunications & Signal Processing Laboratory](http://www-mmsp.ece.mcgill.ca/Documents/Data/).  Download the ISO and extract the 16k-LP7 directory, the src/concat.sh script can be used to generate a headerless file of training samples.
+
+# 1) Train language independent LPCNET
+
 ```
-cd 16k-LP7
-sh /path/to/concat.sh
+./concat.sh /scratch2/mlavechin/GIPSA/training_sets/lpcnet/archives input0.s16 
+./dump_data -train input0.s16 features0.f32 data0.u8
+python main.py --feat features0.f32 --data data0.u8
 ```
+
+# 2) Fine-tune on PB2009
+
+
+```
+./concat.sh /scratch2/mlavechin/GIPSA/training_sets/pb2009/blabla input1.16 
+./dump_data -train input1.s16 features1.f32 data1.u8
+python main.py --feat features1.f32 --data data1.u8
+```
+
+
 # Dump Training Data
 Use together with this [repo](https://github.com/mozilla/LPCNet).
 ```
